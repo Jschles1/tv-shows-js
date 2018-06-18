@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
+import { connect } from "react-redux";
+import * as actions from "../actions";
 
 import Header from "./Header";
 
@@ -8,6 +10,10 @@ const ShowsNew = () => <div>ShowsNew</div>;
 const Landing = () => <div>Landing</div>;
 
 class App extends Component {
+  componentDidMount() {
+    this.props.fetchUser();
+  }
+
   render() {
     return (
       <div>
@@ -24,4 +30,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(null, actions)(App);

@@ -1,22 +1,37 @@
 import React, { Component } from "react";
 import { Menu, Button, Icon } from "semantic-ui-react";
+import { connect } from "react-redux";
 
 class Header extends Component {
+  renderContent() {
+    switch (this.props.auth) {
+      case null:
+        return "Loading...";
+      case false:
+        return (
+          <Button color="google plus" href="/auth/google">
+            <Icon name="google" /> Log In With Google 
+          </Button>
+        );
+      default:
+        return "Logged In";
+    }
+  }
+
   render() {
     return (
       <Menu>
         <Menu.Item header>TV Shows</Menu.Item>
         <Menu.Item position="right">
-          <Button 
-            color="google plus"
-            href="/auth/google"
-          >
-            <Icon name="google" /> Log In With Google 
-          </Button>
+          {this.renderContent()}
         </Menu.Item>
       </Menu>
     );
   }
 }
 
-export default Header;
+function mapStateToProps(state) {
+  return { auth: state.auth };
+}
+
+export default connect(mapStateToProps)(Header);
