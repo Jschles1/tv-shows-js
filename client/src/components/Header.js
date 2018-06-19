@@ -14,7 +14,11 @@ class Header extends Component {
           </Button>
         );
       default:
-        return "Logged In";
+        return (
+          <Button basic href="/api/logout">
+            Log Out
+          </Button>
+        );
     }
   }
 
