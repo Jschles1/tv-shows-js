@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Menu, Button, Icon } from "semantic-ui-react";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 class Header extends Component {
@@ -10,7 +11,7 @@ class Header extends Component {
       case false:
         return (
           <Button color="google plus" href="/auth/google">
-            <Icon name="google" /> Log In With Google 
+            <Icon name="google" /> Log In With Google
           </Button>
         );
       default:
@@ -25,10 +26,12 @@ class Header extends Component {
   render() {
     return (
       <Menu>
-        <Menu.Item header>TV Shows</Menu.Item>
-        <Menu.Item position="right">
-          {this.renderContent()}
+        <Menu.Item header>
+          <Link to={this.props.auth ? "/shows" : "/"}>
+            TV Shows
+          </Link>
         </Menu.Item>
+        <Menu.Item position="right">{this.renderContent()}</Menu.Item>
       </Menu>
     );
   }
