@@ -18,4 +18,7 @@ function mapStateToProps(state) {
   return { shows: state.shows };
 }
 
-export default connect(mapStateToProps, actions)(Dashboard);
+export default connect(
+  mapStateToProps,
+  actions
+)(Dashboard);

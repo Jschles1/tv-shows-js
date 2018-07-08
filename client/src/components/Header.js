@@ -27,9 +27,7 @@ class Header extends Component {
     return (
       <Menu>
         <Menu.Item header>
-          <Link to={this.props.auth ? "/shows" : "/"}>
-            TV Shows
-          </Link>
+          <Link to={this.props.auth ? "/shows" : "/"}>TV Shows</Link>
         </Menu.Item>
         <Menu.Item position="right">{this.renderContent()}</Menu.Item>
       </Menu>

@@ -6,8 +6,7 @@ import * as actions from "../actions";
 import Header from "./Header";
 import Landing from "./Landing";
 import Dashboard from "./Dashboard";
-
-const ShowsNew = () => <div>ShowsNew</div>;
+import ShowsForm from "./ShowsForm";
 
 class App extends Component {
   componentDidMount() {
@@ -22,7 +21,7 @@ class App extends Component {
             <Header />
             <Route exact path="/" component={Landing} />
             <Route exact path="/shows" component={Dashboard} />
-            <Route exact path="/shows/new" component={ShowsNew} />
+            <Route exact path="/shows/new" component={ShowsForm} />
           </div>
         </BrowserRouter>
       </div>
@@ -30,4 +29,7 @@ class App extends Component {
   }
 }
 
-export default connect(null, actions)(App);
+export default connect(
+  null,
+  actions
+)(App);
