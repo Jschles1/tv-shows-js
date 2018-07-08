@@ -19,7 +19,7 @@ class ShowsForm extends Component {
   };
 
   handleOnSubmit = event => {
-    // Submit show
+    this.props.actions.submitNewShow(this.state);
   };
 
   render() {
