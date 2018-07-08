@@ -23,7 +23,20 @@ class ShowsForm extends Component {
   };
 
   render() {
-    return <div>ShowsForm</div>;
+    let { name, network, weekday, showtime } = this.state;
+    return (
+      <Segment>
+        <Form onSubmit={this.handleOnSubmit}>
+          <Form.Group widths="equal">
+            <Form.Input value={name} onChange={this.handleOnChange} name="name" label="Show Name" placeholder="Show Name" />
+            <Form.Input value={network} onChange={this.handleOnChange} name="network" label="Network" placeholder="Network" />
+            <Form.Input value={weekday} onChange={this.handleOnChange} name="weekday" label="Weekday" placeholder="Weekday" />
+            <Form.Input value={showtime} onChange={this.handleOnChange} name="showtime" label="Showtime" placeholder="Showtime" />
+          </Form.Group>
+          <Button type="submit">Add Show</Button>
+        </Form>
+      </Segment>
+    );
   }
 }
 
