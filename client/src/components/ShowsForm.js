@@ -26,7 +26,7 @@ class ShowsForm extends Component {
     let { name, network, weekday, showtime } = this.state;
     return (
       <Segment>
-        <Form onSubmit={this.handleOnSubmit}>
+        <Form onSubmit={this.props.handleOnSubmit}>
           <Form.Group widths="equal">
             <Form.Input value={name} onChange={this.handleOnChange} name="name" label="Show Name" placeholder="Show Name" />
             <Form.Input value={network} onChange={this.handleOnChange} name="network" label="Network" placeholder="Network" />
