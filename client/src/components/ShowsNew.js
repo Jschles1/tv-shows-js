@@ -27,13 +27,19 @@ class ShowsNew extends Component {
   };
 
   confirmNewShow = event => {
-    this.props.actions.submitNewShow(this.state);
+    this.props.submitNewShow(this.state);
   };
 
   render() {
     let { name, network, weekday, showtime, displayConfirm } = this.state;
     return displayConfirm ? (
-      <ShowsFormConfirm confirmNewShow={this.confirmNewShow} />
+      <ShowsFormConfirm 
+        confirmNewShow={this.confirmNewShow}
+        name={name}
+        network={network}
+        weekday={weekday}
+        showtime={showtime} 
+      />
     ) : (
       <Segment>
         <Form onSubmit={this.handleOnSubmit}>
